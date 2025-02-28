@@ -28,7 +28,7 @@
                 inputValidator: (value) => {
                     if (!value) {
                         return 'La clé est obligatoire';
-                    } else if (value !== 'hostolink-v1.0.2') {  // Remplacez par la clé secrète
+                    } else if (value !== 'hostolink-v1.0.3') {  // Remplacez par la clé secrète
                         Swal.fire({
                             icon: 'error',
                             title: 'Clé incorrecte Actualisez la page',
@@ -38,9 +38,9 @@
                     }
                 }
             }).then((result) => {
-                if (result.isConfirmed && result.value === 'hostolink-v1.0.2') {
+                if (result.isConfirmed && result.value === 'hostolink-v1.0.3') {
                     const downloadButton = document.createElement('a');
-                    downloadButton.href = 'apk/hostolink-v1.0.2.apk';  // Lien vers le fichier APK
+                    downloadButton.href = 'apk/hostolink-v1.0.3.apk';  // Lien vers le fichier APK
                     downloadButton.innerText = 'Télécharger l\'APK';
                     downloadButton.style.display = 'block';
                     downloadButton.style.marginTop = '20px';
