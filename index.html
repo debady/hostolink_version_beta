@@ -17,36 +17,26 @@
             icon: 'info',
             confirmButtonText: 'OK'
         }).then(() => {
-            Swal.fire({
-                title: 'appli-HostoLink',
-                input: 'text',
-                inputLabel: 'Clé d\'accès',
-                inputPlaceholder: 'Votre clé ici...',
-                showCancelButton: true,
-                confirmButtonText: 'Valider',
-                cancelButtonText: 'Annuler',
-                inputValidator: (value) => {
-                    if (!value) {
-                        return 'La clé est obligatoire';
-                    } else if (value !== 'hostolink-v1.0.3') {  // Remplacez par la clé secrète
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Clé incorrecte Actualisez la page',
-                            text: 'Veuillez réessayer avec une clé valide.'
-                        });
-                        return false;  
-                    }
-                }
-            }).then((result) => {
-                if (result.isConfirmed && result.value === 'hostolink-v1.0.3') {
-                    const downloadButton = document.createElement('a');
-                    downloadButton.href = 'apk/hostolink-v1.0.3.apk';  // Lien vers le fichier APK
-                    downloadButton.innerText = 'Télécharger l\'APK';
-                    downloadButton.style.display = 'block';
-                    downloadButton.style.marginTop = '20px';
-                    document.body.appendChild(downloadButton);
-                }
-            });
+            // Affichage du bouton de téléchargement après validation
+            const downloadButton = document.createElement('button');
+            downloadButton.innerText = 'Télécharger l\'APK';
+            downloadButton.style.display = 'block';
+            downloadButton.style.marginTop = '20px';
+            downloadButton.style.padding = '10px 20px';
+            downloadButton.style.fontSize = '16px';
+            downloadButton.style.cursor = 'pointer';
+            downloadButton.style.backgroundColor = '#28a745';
+            downloadButton.style.color = 'white';
+            downloadButton.style.border = 'none';
+            downloadButton.style.borderRadius = '5px';
+
+            // Ajouter un événement de téléchargement sur le bouton
+            downloadButton.onclick = function () {
+                window.location.href = 'apk/hostolink-v1.0.3.apk'; // Lien vers l'APK
+            };
+
+            // Ajout du bouton au document
+            document.body.appendChild(downloadButton);
         });
     </script>
 </body>
